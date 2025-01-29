@@ -21,7 +21,13 @@ namespace RelationsNaN.Data
             base.OnModelCreating(builder);
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         public DbSet<Game> Game { get; set; } = default!;
         public DbSet<Genre> Genre { get; set; } = default!;
+        public DbSet<Platform> Platform { get; set; } = default!;
     }
 }
